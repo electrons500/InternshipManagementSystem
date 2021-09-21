@@ -1,0 +1,25 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.UserRoleViewModel
+@{
+    ViewData["Title"] = "Admins";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1>List of Student users</h1>
+<br />
+
+<table id="tblStudent" class="table table-borderless table-striped table-earning">
+    <thead>
+        <tr>
+            <th>Student name</th>
+            <th>Contact number</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+</table>
+
+@section Scripts {
+
+    <script src="~/js/tablesjs/StudentUsersList.js"></script>
+}

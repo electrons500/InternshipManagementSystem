@@ -1,0 +1,228 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.InternsViewModel
+
+@{
+    ViewData["Title"] = "UpdateInterns";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium
+    }
+
+    table thead th {
+        font-weight: bold;
+    }
+
+    body {
+        background-color: #F1F2F7
+    }
+</style>
+
+
+<h4 class="text-center" style="color: #8E24AA"><span class="fas fa-house-user fa-2x">Interns information</span></h4>
+<br />
+<div class="alert alert-info">
+    Interns/Edit interns information
+</div>
+<br />
+
+<div class="card">
+    <div class="card-header" style="background-color:#8E24AA">
+        <h2 class="text-center text-white">Change intern information</h2>
+    </div>
+    <div class="card-body">
+        <form asp-action="UpdateInterns" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="InternId" />
+            <br />
+            <div class="form-group">
+                <label class="control-label"> Upload photo</label>
+                <img id="profilePicture" class="border img-thumbnail" style="width:110px;height:100px;" alt="Intern photo" src="~/Students/StudentImages/@Model?.Photo">
+                <input type="file"
+                       accept=".png,.jpg,.jpeg"
+                       asp-for="StudentImage"
+                       class="border form-control"
+                       style="border:0px!important;padding: 0px;padding-top: 10px;padding-bottom: 30px;"
+                       onchange="document.getElementById('profilePicture').src = window.URL.createObjectURL(this.files[0])"/>
+                <span asp-validation-for="StudentImage" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="control-label"></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="MiddleName" class="control-label"></label>
+                        <input asp-for="MiddleName" class="form-control" />
+                        <span asp-validation-for="MiddleName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Last name</label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="BirthDate" class="control-label"></label>
+                        <input asp-for="BirthDate" class="form-control" />
+                        <span asp-validation-for="BirthDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="GenderId" class="control-label"></label>
+                        <select asp-for="GenderId" class="form-control" asp-items="@Model?.GenderList">
+                            <option> Select Gender</option>
+                        </select>
+                        <span asp-validation-for="GenderId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="HomeTown" class="control-label"></label>
+                        <input asp-for="HomeTown" class="form-control" />
+                        <span asp-validation-for="HomeTown" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="RegionId" class="control-label"></label>
+                        <select asp-for="RegionId" asp-items="Model?.RegionList" class="form-control">
+                            <option>Select region</option>
+                        </select>
+                        <span asp-validation-for="RegionId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Residence" class="control-label"></label>
+                        <input asp-for="Residence" class="form-control" />
+                        <span asp-validation-for="Residence" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Address" class="control-label"></label>
+                        <input asp-for="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="ContactNumber" class="control-label"></label>
+                        <input asp-for="ContactNumber" class="form-control" />
+                        <span asp-validation-for="ContactNumber" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="SchoolId" class="control-label"></label>
+                        <select asp-for="SchoolId" asp-items="Model?.SchoolList" class="form-control">
+                            <option>Select school</option>
+                        </select>
+                        <span asp-validation-for="SchoolId" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="StudentIdCardNumber" class="control-label"></label>
+                        <input asp-for="StudentIdCardNumber" class="form-control" />
+                        <span asp-validation-for="StudentIdCardNumber" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Course" class="control-label"></label>
+                        <input asp-for="Course" class="form-control" />
+                        <span asp-validation-for="Course" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="GuardianName" class="control-label"></label>
+                        <input asp-for="GuardianName" class="form-control" />
+                        <span asp-validation-for="GuardianName" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="GuardianContactNumber" class="control-label"></label>
+                        <input asp-for="GuardianContactNumber" class="form-control" />
+                        <span asp-validation-for="GuardianContactNumber" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="GuardianResidence" class="control-label"></label>
+                        <input asp-for="GuardianResidence" class="form-control" />
+                        <span asp-validation-for="GuardianResidence" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="GuardianCategoryId" class="control-label"></label>
+                        <select asp-for="GuardianCategoryId" asp-items="Model?.GuardianCategoryList" class="form-control">
+                            <option>Select region</option>
+                        </select>
+                        <span asp-validation-for="GuardianCategoryId" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label"> Upload CV <span style="color:red">(pdf only)</span></label>
+                        <input type="file" accept=".pdf" asp-for="CVfile" class="form-control" />
+                        <span asp-validation-for="CvId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-block text-white" style="background-color: #8E24AA"><span class="fa fa-save"> </span> Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+

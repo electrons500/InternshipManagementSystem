@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using OnlineInternshipPortal.Models.Data
+
+@inject SignInManager<ApplicationUser> _SignInManager
+@inject UserManager<ApplicationUser> _UserManager
+
+<style>
+    #hello :hover {
+        color: white
+    }
+</style>
+
+@if (_SignInManager.IsSignedIn(User))
+{
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item active">
+            <a class="nav-link waves-effect waves-light" hidden> 
+                1
+                <span class="fa fa-envelope" style="color:white"></span>
+            </a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link waves-effect waves-light">
+                Hello! @_UserManager.GetUserAsync(User).Result.FullName
+            </a>
+        </li>
+
+        <li class="nav-item active avatar dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false" style="cursor:pointer;">
+                @if (_UserManager.GetUserAsync(User).Result.ProfilePic != null)
+                {
+                    <img class="rounded-circle" width="30" height="30" alt="user image" src="data:image/*;base64,@(Convert.ToBase64String(_UserManager.GetUserAsync(User).Result.ProfilePic))">
+                }
+                else
+                {
+                    <img src="~/images/avatar-2.jpg" class="rounded-circle" width="30" height="30" alt="user image">
+                }
+
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" 
+                 aria-labelledby="navbarDropdownMenuLink-55">
+                <a id="hello" class="dropdown-item" asp-controller="Account" asp-action="GetUserDetails"><span  class="fa fa-user"></span> My account</a>
+              
+                <a class="dropdown-item" asp-controller="Account" asp-action="Logout"><span  class="fa fa-sign-out"></span> Log out</a>
+            </div>
+        </li>
+    </ul>
+}

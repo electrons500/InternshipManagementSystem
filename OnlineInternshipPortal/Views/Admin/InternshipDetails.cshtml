@@ -1,0 +1,139 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.InternshipViewModel
+@{
+    ViewData["Title"] = "InternshipDetails";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1>Internship information</h1>
+<br />
+<div class="alert alert-primary" role="alert">
+    Internship/internship information
+</div>
+<br />
+
+<div class="card au-card shadow-lg">
+    <div class="card-body">
+        <div>
+            <div align="center">
+                @if (Model.Companylogo != null)
+                {
+                    <img width="100" height="100" src="data:image/*;base64,@(Html.Raw(Convert.ToBase64String(Model.Companylogo)))" alt="company logo" />
+                }
+                else
+                {
+                    <h3><span class="fa fa-industry fa-2x"></span></h3>
+                }
+            </div>
+
+            <br />
+            <table class="table table-bordered">
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Title)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.CompanyId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.CompanyName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Location)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.IndustryId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.IndustryName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.InternshipStatusId)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.InternshipStatusName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.RemoteId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.RemoteName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Duration)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Duration)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.WorkDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.WorkDescription)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.SkillsRequired)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.SkillsRequired)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.AdditionalInfo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.AdditionalInfo)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.WhoCanApply)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.WhoCanApply)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.DeadLineDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.DeadLineDate)
+                    </td>
+                </tr>
+
+
+            </table>
+
+            <br />
+
+
+        </div>
+    </div>
+</div>
+
+

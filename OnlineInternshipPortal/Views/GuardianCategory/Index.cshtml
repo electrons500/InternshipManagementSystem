@@ -1,0 +1,80 @@
+﻿@model OnlineInternshipPortal.Models.Data.OnlineInternshipContext.GuardianCategory
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+<h1>List of Guardian category</h1>
+<br />
+<div class="alert alert-info">
+    Guardian category
+</div>
+
+
+
+<div class="card">
+    <div class="card-header bg-transparent">
+        <!-- Button trigger modal -->
+        <a  class="btn btn-primary text-capitalize" asp-controller="GuardianCategory" asp-action="Addcategory">
+            <span class="fas fa-plus"> Add new category</span>
+        </a>
+
+    </div>
+    <div class="card-body">
+        <table id="emptable" class="table table-sm table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        S/No
+                    </th>
+                    <th>
+                        Category
+                    </th>
+
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="addCustomerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa fa-users text-primary"> Add guardian category</i></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form asp-action="Addcategory" method="post">
+                <div class="modal-body">
+
+
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label class="control-label"><strong>Guardian category.eg father,mother</strong></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary"><span class="fa fa-save"> </span> Submit</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span> Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/tablesjs/GuardianCategList.js"></script>
+    @*<script src="~/lib/sweetalert/sweetalert.min.js"></script>*@
+}

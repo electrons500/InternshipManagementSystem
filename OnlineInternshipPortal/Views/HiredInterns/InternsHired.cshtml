@@ -1,0 +1,43 @@
+﻿@model IEnumerable<OnlineInternshipPortal.Models.Data.ViewModel.HiredInternsViewModel>
+
+@{
+    ViewData["Title"] = "CompanyHiredInterns";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1>List of interns hired in a company</h1>
+<br />
+<div class="alert alert-info">
+    Hired Interns
+</div>
+<br />
+
+<div class="card">
+    <div class="card-body">
+        <table id="tblHiredInterns" class="table">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.InternName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CompanyId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HireDate)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script src="~/js/tablesjs/AllHiredInterns.js"></script>
+    <script src="~/lib/sweetalert/sweetalert.min.js"></script>
+
+}

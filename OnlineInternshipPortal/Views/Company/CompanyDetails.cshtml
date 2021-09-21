@@ -1,0 +1,171 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.CompanyViewModel
+
+@{
+    ViewData["Title"] = "CompanyDetails";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium
+    }
+
+    
+   
+</style>
+<nav class="navbar navbar-expand-sm bg-transparent">
+    <a class="btn btn-success" asp-action="ChangeCompanyDetails" asp-route-id="@Model.CompanyId"><span class="fa fa-edit"></span> Edit</a>&nbsp;
+    <button class="btn btn-primary" onclick="Print()"><span class="fa fa-print"></span> Print</button> &nbsp;
+     <a class="btn btn-secondary center" asp-controller="DashBoard" asp-action="Employers" style="background-color: #8E24AA;"><span class="fas fa-arrow-left"></span> Go to Dashboard</a>
+</nav>
+<br />
+<h5 class="text-center" style="color: #8E24AA"><span class="fas fa-house-user fa-2x"> Company information</span></h5>
+<hr />
+<br />
+<div class="col-md-10">
+    <div align="center">
+        <img  width="100" height="100" src="data:image/*;base64,@(Html.Raw(Convert.ToBase64String(Model.Companylogo)))" alt="company logo" />
+    </div>
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <td style="font-weight:bold;" width="30%"> @Html.DisplayNameFor(model => model.CompanyName)</td>
+            <td>
+                @Html.DisplayFor(model => model.CompanyName)
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold">
+                @Html.DisplayNameFor(model => model.CompanyAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CompanyAddress)
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold">
+                @Html.DisplayNameFor(model => model.CompanyLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CompanyLocation)
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold">
+                @Html.DisplayNameFor(model => model.RegionId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.RegionName)
+            </td>
+        </tr>
+
+        <tr>
+            <td style="font-weight:bold">
+                @Html.DisplayNameFor(model => model.CompanyRegNo)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CompanyRegNo)
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold">
+                @Html.DisplayNameFor(model => model.ContactNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.ContactNumber)
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold">
+                @Html.DisplayNameFor(model => model.CompanyEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CompanyEmail)
+            </td>
+        </tr>
+
+        @if (ViewBag.OtherIndustry == "1")
+        {
+            <tr>
+                <td style="font-weight:bold">
+                    @Html.DisplayNameFor(model => model.IndustryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.IndustryName)
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td style="font-weight:bold">
+                    @Html.DisplayNameFor(model => model.IndustryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.IndustryName)
+                </td>
+            </tr>
+
+            <tr>
+                <td style="font-weight:bold">
+                    @Html.DisplayNameFor(model => model.OtherIndustry)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.OtherIndustry)
+                </td>
+            </tr>
+
+        }
+        <tr>
+            <td style="font-weight:bold">
+                @Html.DisplayNameFor(model => model.SectorId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.SectorName)
+            </td>
+        </tr>
+
+        <tr>
+            <td style="font-weight:bold">
+                @Html.DisplayNameFor(model => model.Companywebsite)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Companywebsite)
+            </td>
+        </tr>
+
+        <tr>
+            <td style="font-weight:bold">
+                @Html.DisplayNameFor(model => model.CompanyVideoLink)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CompanyVideoLink)
+            </td>
+        </tr>
+
+        <tr>
+            <td style="font-weight:bold">
+                @Html.DisplayNameFor(model => model.CompanyDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CompanyDescription)
+            </td>
+        </tr>
+
+
+    </table>
+
+   
+
+</div>
+
+
+@section Scripts{ 
+  <script type="text/javascript">
+      function Print() {
+          window.print();
+      }
+  </script>
+
+}

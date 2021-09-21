@@ -1,0 +1,127 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.AccountRegisterViewModel
+
+
+@{
+    ViewData["Title"] = "GetUserDetails";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+<script type="text/javascript">
+    /* $('.alert').alert()*/
+    window.setTimeout(function () {
+        $('#alertInformation').fadeTo(500, 0).slideUp(500, function () {
+            $(this).alert('close');
+        });
+
+    }, 5000);
+</script>
+
+
+<h4>Your account information</h4>
+<hr />
+
+<form asp-action="GetAdminDetails" method="post" enctype="multipart/form-data">
+    <div class="au-card m-b-30">
+        <div class="au-card-inner">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="control-label"></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="MiddleName" class="control-label"></label>
+                        <input asp-for="MiddleName" class="form-control" />
+                        <span asp-validation-for="MiddleName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName" class="control-label"></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="BirthDate" class="control-label"></label>
+                        <input asp-for="BirthDate" class="form-control" />
+                        <span asp-validation-for="BirthDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GenderId" class="control-label"></label>
+                        <select asp-for="GenderId" class="form-control" asp-items="@Model?.GenderList">
+                            <option> Select Gender</option>
+                        </select>
+                        <span asp-validation-for="GenderId" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="HomeTown" class="control-label"></label>
+                        <input asp-for="HomeTown" class="form-control" />
+                        <span asp-validation-for="HomeTown" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RegionId" class="control-label"></label>
+                        <select asp-for="RegionId" class="form-control" asp-items="@Model?.RegionList">
+                            <option>Select Region</option>
+                        </select>
+                        <span asp-validation-for="RegionId" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Residence" class="control-label"></label>
+                        <input asp-for="Residence" class="form-control" />
+                        <span asp-validation-for="Residence" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address" class="control-label"></label>
+                        <input asp-for="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ContactNumber" class="control-label"></label>
+                        <input asp-for="ContactNumber" class="form-control" />
+                        <span asp-validation-for="ContactNumber" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        @* <input type="submit" value="Save" class="btn btn-primary" />*@
+                        <button type="submit" class="btn btn-primary"><span class="fas fa-save"> </span> Submit</button>
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label asp-for="ProfilePic" class="control-label"></label>
+                        @if (Model?.ProfilePic == null)
+                        {
+                            <img id="profilePicture" class="border form-control" style="width:100%;height:100%; object-fit:cover" alt="User photo" src="~/images/UserImage.jpg">
+                        }
+                        else
+                        {
+                            <img id="profilePicture" class="border form-control" style="width:100%;height:100%; object-fit:cover" src="data:image/*;base64,@(Html.Raw(Convert.ToBase64String(Model.ProfilePic)))" alt="user photo">
+                        }
+                        <input type="file"
+                               accept=".png,.jpg,.jpeg"
+                               asp-for="UserImage"
+                               class="border form-control"
+                               style="border:0px!important;padding: 0px;padding-top: 10px;padding-bottom: 30px;"
+                               onchange="document.getElementById('profilePicture').src = window.URL.createObjectURL(this.files[0])" />
+                        @*<span asp-validation-for="ProfilePic" class="text-danger"></span>*@
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+

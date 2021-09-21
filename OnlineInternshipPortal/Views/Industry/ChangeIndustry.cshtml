@@ -1,0 +1,36 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.IndustryViewModel
+
+@{
+    ViewData["Title"] = "ChangeIndustry";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1>Change an industry</h1>
+
+<hr />
+<div class="alert alert-info">
+    Industry/Edit Industry
+</div>
+
+<br />
+<div class="card au-card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="ChangeIndustry">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="IndustryId" />
+                    <div class="form-group">
+                        <label asp-for="IndustryName" class="control-label"></label>
+                        <input asp-for="IndustryName" class="form-control" />
+                        <span asp-validation-for="IndustryName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary"><span class="fa fa-save"> </span> Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

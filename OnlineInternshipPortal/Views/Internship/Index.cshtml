@@ -1,0 +1,65 @@
+﻿@model IEnumerable<OnlineInternshipPortal.Models.Data.ViewModel.InternshipViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium
+    }
+
+    table thead th {
+        font-weight: bold;
+    }
+
+    body {
+        background-color: #F1F2F7
+    }
+</style>
+<h1>List of internships</h1>
+
+<div class="alert alert-info">
+    Internship/List
+</div>
+<br />
+<div align="right">
+    <a class="btn btn-secondary" asp-controller="DashBoard" asp-action="Employers" style="background-color: #8E24AA"><span class="fas fa-arrow-left"></span> Go to Dashboard</a>&nbsp;
+
+</div>
+<br />
+<div class="card">
+    <div class="card-header bg-transparent">
+        <a asp-action="AddInternship" class="btn btn-primary"><span class="fas fa-plus-circle"> </span> Add new internship</a>
+    </div>
+    <div class="card-body">
+        <table id="emptable" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Location)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.PostedDate)
+                    </th>
+
+
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script src="~/js/tablesjs/CompanyInternshipList.js"></script>
+
+}

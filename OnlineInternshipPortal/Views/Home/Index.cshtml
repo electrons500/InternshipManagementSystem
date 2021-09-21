@@ -1,0 +1,245 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Online Internship System</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+
+    <link href="~/Dashboard/css/font-face.css" rel="stylesheet" />
+    <!-- Vendor CSS Files -->
+    <link href="~/Landingpage/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Landingpage/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="~/Landingpage/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Landingpage/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="~/Landingpage/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+
+    <link href="~/Landingpage/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/Landingpage/assets/css/style.css" rel="stylesheet">
+    <link href="~/lib/FontAwesome.4.7.0/Content/Content/font-awesome.css" rel="stylesheet" />
+    <style type="text/css">
+        * {
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+        <div class="container d-flex align-items-center">
+
+            <div class="logo mr-auto">
+                <h1 class="text-light"><a href="index.html"><span>InternGo</span></a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
+
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                    <li><a href="@Url.Action("Login","Account")">Login</a></li>
+
+                    <li class="drop-down">
+                        <a href="">Register</a>
+                        <ul>
+                            <li><a href="@Url.Action("EmployerRegister","Account")"><span class="fa fa-home"></span> Register as Company</a></li>
+
+                            <li><a href="@Url.Action("StudentRegister","Account")"><span class="fa fa-users"></span> Register as Student</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav><!-- .nav-menu -->
+
+        </div>
+    </header><!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
+                    <div data-aos="zoom-out">
+                        <h1>About InternGo</h1>
+                        <p class="text-white">InternGo is an online internship management service which is developed to help current university students seeking for internship to find one and likewise help companies seeking interns to find interns. </p>
+                        <div class="text-center text-lg-left">
+                            <a href="#about" class="btn-get-started scrollto" hidden>Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
+                    <img src="~/Landingpage/assets/img/students/hero-img.png" class="img-fluid animated" alt="">
+                </div>
+            </div>
+        </div>
+
+        <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+            <defs>
+                <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="wave1">
+                <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)" />
+            </g>
+            <g class="wave2">
+                <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)" />
+            </g>
+            <g class="wave3">
+                <use xlink:href="#wave-path" x="50" y="9" fill="#fff" />
+            </g>
+        </svg>
+
+    </section><!-- End Hero -->
+
+    <main id="main">
+
+
+        <!-- ======= Features Section ======= -->
+        <section id="features" class="features">
+            <div class="container">
+
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Features</h2>
+                    <p>Check The Features</p>
+                </div>
+
+                <div class="row" data-aos="fade-left">
+                    <div class="col-lg-3 col-md-4">
+                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="50">
+                            <i class="ri-store-line" style="color: #ffbb2c;"></i>
+                            <h3><a href="">Internship searches</a></h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+                            <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
+                            <h3><a href="">Company verification</a></h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="150">
+                            <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
+                            <h3><a href="">Mail Services</a></h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                            <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
+                            <h3><a href="">Networking</a></h3>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </section><!-- End Features Section -->
+        <!-- ======= Counts Section ======= -->
+        <section id="counts" class="counts">
+            <div class="container">
+
+                <div class="row" data-aos="fade-up">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <i class="icofont-simple-smile"></i>
+                            <span data-toggle="counter-up">232</span>
+                            <p>Users</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+                        <div class="count-box">
+                            <i class="icofont-document-folder"></i>
+                            <span data-toggle="counter-up">521</span>
+                            <p>Interns</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                        <div class="count-box">
+                            <i class="icofont-live-support"></i>
+                            <span data-toggle="counter-up">1,463</span>
+                            <p>Companies</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                        <div class="count-box">
+                            <i class="icofont-users-alt-5"></i>
+                            <span data-toggle="counter-up">15</span>
+                            <p>Internships</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Counts Section -->
+
+
+
+
+
+
+
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                Copyright &copy; @DateTime.Now.Year Computer Science Department, Kwame Nkrumah University of Science & Technology, All rights reserved.
+            </div>
+            <div class="credits">
+               
+                Developed Ishmael Obeng. Index number 4617118
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="~/Landingpage/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Landingpage/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Landingpage/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/Landingpage/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/Landingpage/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="~/Landingpage/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="~/Landingpage/assets/vendor/counterup/counterup.min.js"></script>
+    <script src="~/Landingpage/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/Landingpage/assets/vendor/aos/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/Landingpage/assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.IndustryViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+
+<h1>List of industries</h1>
+<br />
+<div class="alert alert-info">
+    Industry
+</div>
+
+<div class="card au-card">
+    <div class="card-header bg-transparent">
+        <!-- Button trigger modal -->
+        <a asp-controller="Industry" asp-action="AddIndustry" class="btn btn-primary text-capitalize">
+            <span class="fas fa-plus"> Add new industry</span>
+        </a>
+    </div>
+    <div class="card-body">
+
+
+        <table id="emptable" class="table table-sm table-hover  table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        S/No
+                    </th>
+                    <th>
+                        Industries
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+
+        </table>
+
+
+    </div>
+
+</div>
+
+<div class="modal fade" id="addCustomerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa fa-industry text-primary"> Add new industry</i></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form asp-action="AddIndustry" method="post">
+                <div class="modal-body">
+
+
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label class="control-label"><strong>Industry name</strong></label>
+                        <input asp-for="IndustryName" class="form-control" />
+                        <span asp-validation-for="IndustryName" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary"><span class="fa fa-save"> </span> Submit</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span> Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/tablesjs/IndustryList.js"></script>
+    <script src="~/lib/sweetalert/sweetalert.min.js"></script>
+
+
+}

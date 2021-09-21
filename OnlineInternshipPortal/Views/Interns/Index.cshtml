@@ -1,0 +1,47 @@
+﻿@model IEnumerable<OnlineInternshipPortal.Models.Data.ViewModel.InternsViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1>List of interns</h1>
+<br />
+<div class="alert alert-info ">
+    Interns
+</div>
+
+
+
+<div class="card">
+   
+    <div class="card-body">
+        <table id="emptable" class="table table-condensed table-bordered table-hover">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.FullName)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.GenderId)
+                    </th>
+
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.ContactNumber)
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+           
+        </table>
+    </div>
+</div>
+
+@section Scripts{ 
+    <script src="~/js/tablesjs/AdminInternsList.js"></script>
+
+}

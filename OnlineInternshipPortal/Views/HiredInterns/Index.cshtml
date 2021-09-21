@@ -1,0 +1,60 @@
+﻿@model  OnlineInternshipPortal.Models.Data.ViewModel.HiredInternsViewModel 
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium
+    }
+
+    table thead th {
+        font-weight: bold;
+    }
+
+    body {
+        background-color: #F1F2F7
+    }
+</style>
+
+<h1>Interns hired in the company</h1>
+<br />
+<div class="alert alert-info">
+    Hired Interns
+</div>
+<br />
+<div class="card">
+    <div class="card-header bg-transparent">
+        <div align="center">
+            <a class="btn btn-secondary center" asp-controller="DashBoard" asp-action="Employers" style="background-color: #8E24AA;"><span class="fas fa-arrow-left"></span> Go to Dashboard</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table id="tblCompanyInterns" class="table">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.InternName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InternEmail)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HireDate)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script src="~/js/tablesjs/CompanyHiredInternList.js"></script>
+
+}

@@ -1,0 +1,163 @@
+﻿@model PaginatedList<OnlineInternshipPortal.Models.Data.OnlineInternshipContext.Internship>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_header.cshtml";
+
+
+}
+<style>
+    .homeImage:hover {
+        background-color: #8E24AA;
+        color: white;
+    }
+</style>
+
+<div class="alert alert-info" role="alert">
+    <h2 class="text-center" style="color: #8E24AA"><span class="fas fa-place-of-worship fa-1x"></span> Internships</h2>
+</div>
+<br />
+<div class="alert alert-warning" role="alert">
+   <div class="row">
+       <div class="col-md-6">
+           <ul type="square">
+               <li>Search by industry and location or Search by location only </li>
+           </ul>
+           
+       </div>
+       <div class="col offset-2">
+           <a href="@Url.Action("Students","Dashboard")" class="btn btn-info text-white"><span class="fa fa-arrow-left"></span> Back to Dashboard</a>
+       </div>
+   </div>
+</div>
+<br />
+<form asp-action="Index" method="get">
+    <div class="row">
+        <div class="col-md-4 " style="margin-bottom:10px">
+            <select name="IndustryId" asp-items="@ViewBag.IndustryList" class="form-control">
+                <option>Select industry</option>
+            </select>
+        </div>
+        <div class="col-md-4 " style="margin-bottom:10px">
+            <input type="text" class="form-control" name="Location" value="@ViewBag.CurrentFilter" placeholder="Search by Location" />
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-secondary" style="background-color:#8E24AA" title="Search"><span class="fa fa-search"></span></button>
+            
+        </div>
+
+    </div>
+</form>
+<br />
+
+@if (Model.Count == 0)
+{
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-danger" role="alert">
+                <span class="fa fa-times-circle"> Sorry!,No internships found</span>
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+            <div style="margin-bottom: 16px;" class="col-md-12">
+                <div class="card h-100 shadow-lg">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2">
+                                @if (item.CompanyImage.Image == null)
+                                {
+                                    <img style="width: 100px; height: 100px" class="img-thumbnail rounded mx-auto d-block img-fluid" src="~/images/avatar-2.jpg" alt="company logo" />
+                                }
+                                else
+                                {
+
+                                    <img style="width: 100px; height: 100px " class="img-thumbnail rounded mx-auto d-block img-fluid" src="data:image/jpg;base64,@(Html.Raw(Convert.ToBase64String(item.CompanyImage.Image)))" alt="company logo" />
+
+                                }
+
+                            </div>
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group">
+                                    <a href="@Url.Action("Details", "InternshipSearch", new { id = item.InternshipId})"> @Html.DisplayFor(modelItem => item.Title)</a>
+                                    <p><span class="fas fa-map-marker-alt" style="color: #8E24AA"></span> @Html.DisplayFor(modelItem => item.Location)</p>
+                                    <p style="margin-top:-15px"><span class="fa fa-building" style="color: #8E24AA"></span> @Html.DisplayFor(modelItem => item.Company.CompanyName)</p>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group">
+                                    <p><span style="font-weight: bold;">Industry:</span> @Html.DisplayFor(modelItem => item.Industry.IndustryName)</p>
+                                    @if ((item.PostedDate.ToString()) != null)
+                                    {
+                                        TimeSpan timeSpan = DateTime.Now - item.PostedDate;
+                                        DateTime duration = DateTime.MinValue + timeSpan;
+                                        int years = duration.Year - 1;
+                                        int Month = duration.Month - 1;
+                                        int day = duration.Day - 1;
+                                        if (day != 0 && Month == 0 && years == 0)
+                                        {
+                                            <p><span class="fa fa-clock" style="color: #8E24AA"></span> @day days ago</p>
+                                        }
+                                        else if (day != 0 && Month != 0 && years == 0)
+                                        {
+                                            <p><span class="fa fa-clock" style="color: #8E24AA"></span> @Month month @day days ago</p>
+                                        }
+                                        else if (day != 0 && Month != 0 && years != 0)
+                                        {
+                                            <p><span class="fa fa-clock" style="color: #8E24AA"> </span> @years year @Month month @day days ago</p>
+                                        }
+
+                                        else
+                                        {
+                                            <p><span class="fa fa-clock" style="color: #8E24AA"> </span>  @day days ago</p>
+                                        }
+
+
+                                    }
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        }
+    </div>
+
+    
+        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    
+
+    <a asp-action="Index"
+       asp-route-pageNumber="@(Model.PageIndex - 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default text-white @prevDisabled" style="background-color: #8E24AA">
+        Previous
+    </a>
+    <a asp-action="Index"
+       asp-route-pageNumber="@(Model.PageIndex + 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default text-white @nextDisabled" style="background-color: #8E24AA">
+        Next
+    </a>
+
+
+}
+
+
+
+
+

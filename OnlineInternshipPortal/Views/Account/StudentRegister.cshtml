@@ -1,0 +1,179 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.AccountRegisterViewModel
+@{
+    ViewData["Title"] = "Student account registration";
+    Layout = "~/Views/Shared/_mdbLayout.cshtml";
+}
+<style>
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium
+    }
+</style>
+
+
+
+
+
+@if (ViewBag.Error != null)
+{
+    <partial name="_PasswordValidationAlertPartial" />
+}
+
+<h3 class="text-secondary text-center"> Create your Student user Account</h3>
+<hr />
+<br />
+<div class="card">
+    <div class="card-body">
+        <div align="center">
+            <span class="fa fa-users fa-6x text-secondary text-center"></span>
+        </div>
+        <br />
+        
+        <form asp-action="StudentRegister">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class=" row">
+                <div class=" col-md-4">
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="control-label"></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="MiddleName" class="control-label"></label>
+                        <input asp-for="MiddleName" class="form-control" />
+                        <span asp-validation-for="MiddleName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="LastName" class="control-label"></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="BirthDate" class="control-label"></label>
+                        <input asp-for="BirthDate" class="form-control" />
+                        <span asp-validation-for="BirthDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="GenderId" class="control-label"></label>
+                        <select asp-for="GenderId" class="form-control" asp-items="@Model?.GenderList">
+                            <option> Select Gender</option>
+                        </select>
+                        <span asp-validation-for="GenderId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="HomeTown" class="control-label"></label>
+                        <input asp-for="HomeTown" class="form-control" />
+                        <span asp-validation-for="HomeTown" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="RegionId" class="control-label"></label>
+                        <select asp-for="RegionId" class="form-control" asp-items="@Model?.RegionList">
+                            <option> Select region</option>
+                        </select>
+                        <span asp-validation-for="RegionId" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Residence" class="control-label"></label>
+                        <input asp-for="Residence" class="form-control" />
+                        <span asp-validation-for="Residence" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Address" class="control-label"></label>
+                        <input asp-for="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="ContactNumber" class="control-label"></label>
+                        <input asp-for="ContactNumber" class="form-control" />
+                        <span asp-validation-for="ContactNumber" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="EmailAdress" class="control-label"></label>
+                        <input type="email" asp-for="EmailAdress" class="form-control" pattern="^[a-zA-Z0-9._+-]+@("@")[a-zA-Z0-9.-]+\.[a-zA-Z]{2,9}$" required />
+                        <span asp-validation-for="EmailAdress" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword" class="control-label"></label>
+                        <input asp-for="ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <center>
+                <div class="form-group" style="margin-top:5px">
+                    <button type="submit" class="btn btn-secondary w-50"><span class="fas fa-save mr-1"> </span>Submit</button>
+                </div>
+            </center>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<!-- Material input -->
+<!--<div class="md-form input-with-pre-icon">
+    <i class="fas fa-user input-prefix"></i>
+    <input type="text" id="prefixInside" class="form-control">
+    <label for="prefixInside">Example label </label>
+</div>-->
+<!-- Large outline input -->
+<!--<div class="md-form md-outline form-lg">
+    <input id="form-lg" class="form-control form-control-lg" type="text">
+    <label for="form-lg">Example label</label>
+</div>-->
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+}

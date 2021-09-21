@@ -1,0 +1,140 @@
+﻿@model PaginatedList<OnlineInternshipPortal.Models.Data.OnlineInternshipContext.Internship>
+
+@{
+    ViewData["Title"] = "Internship posted";
+    Layout = "~/Views/Shared/_header.cshtml";
+    
+}
+
+
+<style>
+    .homeImage:hover {
+        background-color: #8E24AA;
+        color: white;
+    }
+</style>
+
+<h1>List of your company posted internships</h1>
+<br />
+
+@if (Model.Count == 0)
+{
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-danger" role="alert">
+                <span class="fa fa-times-circle"> Sorry!,No internships found</span>
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+            <div style="margin-bottom: 16px;" class="col-md-12">
+                <div class="card h-100">
+                    <div class="card-body box-shadow">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2">
+                                @if (item.CompanyImage.Image == null)
+                                {
+                                    <img style="width: 100px; height: 100px" class="img-thumbnail rounded mx-auto d-block img-fluid" src="~/images/avatar-2.jpg" alt="company logo" />
+                                }
+                                else
+                                {
+
+                                    <img style="width: 100px; height: 100px " class="img-thumbnail rounded mx-auto d-block img-fluid" src="data:image/jpg;base64,@(Html.Raw(Convert.ToBase64String(item.CompanyImage.Image)))" alt="company logo" />
+
+                                }
+
+                            </div>
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group">
+                                    <a href="@Url.Action("Details", "InternshipSearch", new { id = item.InternshipId})"> @Html.DisplayFor(modelItem => item.Title)</a>
+                                    <p><span class="fa fa-map-marker-alt"></span> @Html.DisplayFor(modelItem => item.Location)</p>
+                                    <p style="margin-top:-15px"><span class="fa fa-building"></span> @Html.DisplayFor(modelItem => item.Company.CompanyName)</p>
+
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group">
+                                    <p><span style="font-weight: bold;">Industry:</span> @Html.DisplayFor(modelItem => item.Industry.IndustryName)</p>
+                                    @if ((item.PostedDate.ToString()) != null)
+                                    {
+                                        TimeSpan timeSpan = DateTime.Now - item.PostedDate;
+                                        DateTime duration = DateTime.MinValue + timeSpan;
+                                        int years = duration.Year - 1;
+                                        int Month = duration.Month - 1;
+                                        int day = duration.Day - 1;
+                                        if (day != 0 && Month == 0 && years == 0)
+                                        {
+                                            <p><span class="fa fa-clock"></span> @day days ago</p>
+                                        }
+                                        else if (day != 0 && Month != 0 && years == 0)
+                                        {
+                                            <p><span class="fa fa-clock"></span> @Month month @day days ago</p>
+                                        }
+                                         else if (day != 0 && Month != 0 && years != 0)
+                                        {
+                                             <p><span class="fa fa-clock"> </span> @years year @Month month @day days ago</p>
+                                        }
+
+                                        else
+                                        {
+                                            <p><span class="fa fa-clock"> </span>  @day days ago</p>
+                                        }
+
+                                    }
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        }
+    </div>
+
+
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+
+
+    <a asp-action="InternshipPosted"
+       asp-route-pageNumber="@(Model.PageIndex - 1)"
+       
+       class="btn btn-default text-white @prevDisabled" style="background-color: #8E24AA">
+        Previous
+    </a>
+    <a asp-action="InternshipPosted"
+       asp-route-pageNumber="@(Model.PageIndex + 1)"
+       
+       class="btn btn-default text-white @nextDisabled" style="background-color: #8E24AA">
+        Next
+    </a>
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

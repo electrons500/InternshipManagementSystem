@@ -1,0 +1,255 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.CompanyViewModel
+
+@{
+    ViewData["Title"] = "ChangeCompanyDetails";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium
+    }
+
+
+    body {
+        background-color: #F1F2F7
+    }
+</style>
+
+
+<h4 class="text-center" style="color: #8E24AA"><span class="fas fa-house-user fa-2x"> Company information</span></h4>
+<hr />
+<div class="alert alert-info">
+    Company/Edit Company information
+</div>
+<br />
+<div align="center">
+    <a class="btn btn-secondary center" asp-controller="DashBoard" asp-action="Employers" style="background-color: #8E24AA;"><span class="fas fa-arrow-left"></span> Go to Dashboard</a>
+</div>
+
+<br />
+<form asp-action="ChangeCompanyDetails" enctype="multipart/form-data">
+    <div class="card">
+        <div class="card-header" style="background-color:#8E24AA">
+            <h2 class="text-center text-white">Edit information</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Company logo</label>
+                        <img id="profilePicture" class="border form-control" style="width:110px;height:100px;" alt="User photo" src="data:image/*;base64,@(Html.Raw(Convert.ToBase64String(Model.Companylogo)))">
+                        <input type="file"
+                               accept=".png,.jpg,.jpeg"
+                               asp-for="ImageIformFile"
+                               class="border form-control"
+                               style="border:0px!important;padding: 0px;padding-top: 10px;padding-bottom: 30px;"
+                               onchange="document.getElementById('profilePicture').src = window.URL.createObjectURL(this.files[0])" />
+                        @*<span asp-validation-for="ProfilePic" class="text-danger"></span>*@
+                    </div>
+
+                </div>
+
+            </div>
+            <div>
+                <input type="hidden" asp-for="CompanyId" />
+                <input type="hidden" asp-for="CompanyImageId" />
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="CompanyName" class="control-label"></label>
+                        <input asp-for="CompanyName" class="form-control" />
+                        <span asp-validation-for="CompanyName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="CompanyRegNo" class="control-label"></label>
+                        <input asp-for="CompanyRegNo" class="form-control" />
+                        <span asp-validation-for="CompanyRegNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="CompanyAddress" class="control-label"></label>
+                        <input asp-for="CompanyAddress" class="form-control" />
+                        <span asp-validation-for="CompanyAddress" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="CompanyLocation" class="control-label"></label>
+                        <input asp-for="CompanyLocation" class="form-control" />
+                        <span asp-validation-for="CompanyLocation" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="RegionId" class="control-label"></label>
+                        <select asp-for="RegionId" asp-items="Model?.RegionList" class="form-control">
+                            <option>Select region</option>
+                        </select>
+                        <span asp-validation-for="RegionId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="ContactNumber" class="control-label"></label>
+                        <input asp-for="ContactNumber" class="form-control" />
+                        <span asp-validation-for="ContactNumber" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="CompanyEmail" class="control-label"></label>
+                        <input asp-for="CompanyEmail" class="form-control" />
+                        <span asp-validation-for="CompanyEmail" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="SectorId" class="control-label"></label>
+                        <select asp-for="SectorId" asp-items="Model?.SectorList" class="form-control">
+                            <option>Select sector</option>
+                        </select>
+                        <span asp-validation-for="SectorId" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="row">
+
+                @if (ViewBag.OtherIndustry == "1")
+                {
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="IndustryId" class="control-label"></label>
+                            <select id="industry" asp-for="IndustryId" asp-items="Model?.IndustryList" class="form-control">
+                                <option>Select industry</option>
+                            </select>
+                            <span asp-validation-for="IndustryId" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Companywebsite" class="control-label"></label>
+                            <input asp-for="Companywebsite" class="form-control" placeholder="eg.http://www.mywebsite.com" />
+                            <span asp-validation-for="Companywebsite" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                }
+                else
+                {
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="IndustryId" class="control-label"></label>
+                            <select id="industry" asp-for="IndustryId" asp-items="Model?.IndustryList" class="form-control">
+                                <option>Select industry</option>
+                            </select>
+                            <span asp-validation-for="IndustryId" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div id="otherindustries" class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="OtherIndustry" class="control-label"></label>
+                            <input asp-for="OtherIndustry" class="form-control" placeholder="Enter your industry.eg Banking" />
+                            <span asp-validation-for="OtherIndustry" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Companywebsite" class="control-label"></label>
+                            <input asp-for="Companywebsite" class="form-control" placeholder="eg.http://www.mywebsite.com" />
+                            <span asp-validation-for="Companywebsite" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+
+
+
+                }
+
+
+
+
+
+
+
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="CompanyVideoLink" class="control-label"></label>
+                        <input asp-for="CompanyVideoLink" class="form-control" />
+                        <span asp-validation-for="CompanyVideoLink" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="UserId" class="control-label"></label>
+                        <input asp-for="EmployerFullName" class="form-control" readonly />
+                        <span asp-validation-for="UserId" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="DesignationId" class="control-label"></label>
+                        <select asp-for="DesignationId" asp-items="Model?.DesignationList" class="form-control">
+                            <option>Select designation</option>
+                        </select>
+                        <span asp-validation-for="DesignationId" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="CompanyDescription" class="control-label"></label>
+                        <textarea cols="12" rows="5" asp-for="CompanyDescription" class="form-control" placeholder="Short company description">                
+                        </textarea>
+                        <span asp-validation-for="CompanyDescription" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group" style="margin-top:50px">
+                        <button type="submit" class="btn btn-block text-white" style="background-color: #8E24AA"><span class="fa fa-save"> </span> Submit</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+

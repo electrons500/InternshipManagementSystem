@@ -1,0 +1,34 @@
+﻿@model OnlineInternshipPortal.Models.Data.OnlineInternshipContext.GuardianCategory
+
+@{
+    ViewData["Title"] = "Addcategory";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1>Add Guardian category</h1>
+<br />
+<div class="alert alert-info">
+    Guardian category/Add category
+</div>
+<br />
+<div class="card au-card">
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <form asp-action="Addcategory">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" required/>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary"><span class="fa fa-save"> </span> Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

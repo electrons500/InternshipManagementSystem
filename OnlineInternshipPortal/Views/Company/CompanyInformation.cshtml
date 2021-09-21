@@ -1,0 +1,90 @@
+﻿@model IEnumerable<OnlineInternshipPortal.Models.Data.ViewModel.CompanyViewModel>
+
+@{
+    ViewData["Title"] = "CompanyInformation";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium
+    }
+
+    table thead th {
+        font-weight: bold;
+    }
+
+    body {
+        background-color: #F1F2F7
+    }
+</style>
+
+<h1 style="color: #8E24AA" class="text-center"><span class="fas fa-home fa-1x"></span> Company information</h1>
+<br />
+<div class="alert alert-primary">
+    Company
+</div>
+
+<br />
+
+<div class="card">
+    <div class="card-header bg-transparent">
+        <div align="center">
+            <a class="btn btn-secondary center" asp-controller="DashBoard" asp-action="Employers" style="background-color: #8E24AA;"><span class="fas fa-arrow-left"></span> Go to Dashboard</a>
+        </div>
+
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-hover dt-responsive nowrap">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+
+                    <th>
+                        Location
+                    </th>
+
+                    <th>
+                        Contact
+                    </th>
+                    <th>
+                        Email
+                    </th>
+
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CompanyName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CompanyLocation)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContactNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CompanyEmail)
+                        </td>
+
+                        <td>
+                            <a asp-action="ChangeCompanyDetails" asp-route-id="@item.CompanyId" class="btn btn-secondary" style="background-color: #8E24AA"><span class="fa fa-edit"></span></a>
+                            <a asp-action="CompanyDetails" asp-route-id="@item.CompanyId" class="btn btn-success"><span class="fa fa-user"></span></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+

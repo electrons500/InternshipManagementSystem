@@ -1,0 +1,125 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.ApplicationViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium
+    }
+
+    table thead th {
+        font-weight: bold;
+    }
+
+    body {
+        background-color: #F1F2F7
+    }
+   
+</style>
+
+
+
+<h2>List of Applications</h2>
+<br />
+<div class="alert alert-info">
+    Intern applications
+</div>
+<br />
+
+<br />
+<div class="card">
+    <div class="card-header bg-transparent">
+        <div align="center">
+            <a class="btn btn-secondary center" asp-controller="DashBoard" asp-action="Employers" style="background-color: #8E24AA;"><span class="fas fa-arrow-left"></span> Go to Dashboard</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table id="Apptable" class="table table-sm table-bordered table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InternId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InternshipId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ApprovalId)
+                    </th> 
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+
+
+<div class="modal fade" id="addApplicationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fas fa-stamp text-primary"> Approve or Deny application</i></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form asp-action="InternInformation" method="post">
+                <div class="modal-body">
+
+
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label class="control-label"><strong>Application status</strong></label>
+                        <input id="txtapplicationId" asp-for="ApplicationId" class="form-control" readonly />
+                        <span asp-validation-for="ApplicationId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"><strong>Application status</strong></label>
+                        <select id="dropdownlistApproval" asp-for="ApprovalId" asp-items="@Model?.ApprovalList" class="form-control">
+                            <option>Select an application status</option>
+                        </select>
+                        <span asp-validation-for="ApprovalId" class="text-danger"></span>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary"><span class="fa fa-save"> </span> Submit</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span> Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/tablesjs/InternApplicationList.js"></script>
+
+    <script>
+        $('#addApplicationModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            //modal.find('.modal-title').text('New message to ' + recipient)
+            //modal.find('.modal-body input').val(recipient)
+            $('#txtapplicationId').val(recipient);
+        })
+    </script>
+
+
+
+}

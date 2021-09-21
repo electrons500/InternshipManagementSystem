@@ -1,0 +1,173 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.InternsViewModel
+
+@{
+    ViewData["Title"] = "InternDetails";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium
+    }
+</style>
+<nav class="navbar navbar-expand-sm bg-transparent">
+    <button class="btn btn-secondary" onclick="Print()"><span class="fa fa-print"></span> Print</button>&nbsp;
+    <a class="btn btn-success" asp-action="UpdateInterns" asp-route-id="@Model.InternId"><span class="fa fa-edit"></span> Edit</a>&nbsp;
+    <a class="btn btn-info" target="_blank" href="~/Students/CVs/@Model.CVfilename"><span class="fa fa-file-pdf"></span> View CV</a>&nbsp;
+    <a class="btn btn-secondary" asp-controller="DashBoard" asp-action="Students" style="background-color: #8E24AA"><span class="fas fa-arrow-left"></span> Back to Dashboard</a>&nbsp;
+
+
+</nav>
+<br />
+<h5 class="text-center" style="color: #8E24AA"><span class="fas fa-house-user fa-2x"> Student information</span></h5>
+<hr />
+<br />
+
+<div class="col-md-10">
+    <div align="center">
+        @if (Model.Photo != null)
+        {
+            <img width="100" height="100" src="~/Students/StudentImages/@Model?.Photo" alt="Student image" />
+        }
+        else
+        {
+            <img width="100" height="100" src="~/images/UserImage.jpg" alt="Student image" />
+        }
+    </div>
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.FullName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.BirthDate)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.GenderId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.GenderName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.HomeTown)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.HomeTown)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.RegionId)
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.RegionName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Residence)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Residence)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Address)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.SchoolId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.SchoolName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.StudentIdCardNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.StudentIdCardNumber)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Course)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Course)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.GuardianId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.GuardianName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.GuardianContactNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.GuardianContactNumber)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.GuardianResidence)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.GuardianResidence)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.GuardianCategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.GuardianCategoryName)
+            </td>
+        </tr>
+
+
+    </table>
+</div>
+
+
+@section Scripts{
+    <script type="text/javascript">
+     function Print() {
+         window.print();
+     }
+    </script>
+}

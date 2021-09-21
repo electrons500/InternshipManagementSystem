@@ -1,0 +1,172 @@
+﻿
+@{
+    ViewData["Title"] = "Students";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium;
+        color: #8E24AA
+    }
+
+    body {
+        background-color: #F1F2F7
+    }
+</style>
+<script type="text/javascript">
+   /* $('.alert').alert()*/
+    window.setTimeout(function () {
+        $('#alertInformation').fadeTo(500, 0).slideUp(500, function () {
+            $(this).alert('close');
+        });
+
+    },10000);
+</script>
+
+<div class="alert alert-info">
+    <h3><span class="fa fa-dashboard"></span> Welcome to the Company dashboard </h3>
+</div>
+<div id="alertInformation" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <p>If this is your first login,then do the following instructions else close it</p>
+    <ul type="square">
+        <li>Go to Add Company to fill your company details</li>
+        <li>If you made a mistake after submission of the information,Go to edit Company information to change it</li>
+        <li>View your Company information by going to View Company information</li>
+        
+    </ul>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<br />
+<div class="form">
+
+    <div class="card shadow-lg">
+        <div class="card-header bg-transparent">
+            <h5 class="text-black-50 text-uppercase">Quick Start</h5>
+        </div>
+        <div class="card-body">
+            <div class="row" style="margin:auto;">
+
+                <div class="col-md-3 py-2">
+                    <a href="@Url.Action("AddCompany","Company")">
+                        <div class="card" style="height:150px;">
+                            <div class="card-body border border-danger shadow">
+                                <div class="form-group">
+                                    <div class="text-center ">
+                                        <p><i class="fa  fa-user-plus fa-3x"></i></p>
+                                    </div>
+                                    <div class="text-center">
+                                        <label  style="cursor:pointer">Add new Company</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="col-md-3 py-2" style="margin:auto">
+                    <a href="@Url.Action("CompanyInformation","Company")">
+                        <div class="card" style="height:150px;">
+                            <div class="card-body border border-warning shadow">
+                                <div class="form-group">
+
+                                    <div class="text-center">
+                                        <p><i class="fa fa-edit fa-3x"></i></p>
+                                    </div>
+                                    <div class="text-center">
+                                        <label  style="cursor:pointer">View & Edit Company information</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="col-md-3 py-2">
+                    <a href="@Url.Action("Index","Internship")">
+                        <div class="card" style="height:150px;">
+                            <div class="card-body border border-success shadow">
+                                <div class="form-group">
+
+                                    <div class="text-center">
+                                        <p><i class="fa  fa-newspaper-o fa-3x"></i></p>
+                                    </div>
+                                    <div class="text-center">
+                                        <label  style="cursor:pointer">Post Internship</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+            <div class="row" style="margin:10px auto;">
+                <div class="col-md-3 py-2">
+                    <a href="@Url.Action("Index","InternApplication")">
+                        <div class="card" style="height:150px;">
+                            <div class="card-body border border-info shadow">
+                                <div class="form-group">
+                                    <div class="text-center">
+                                        <p><i class="fa  fa-user-circle fa-3x"></i></p>
+                                    </div>
+                                    <div class="text-center">
+                                        <label style="cursor:pointer">Internship applicant</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 py-2" style="margin:auto">
+                    <a href="@Url.Action("Index","HiredInterns")">
+                        <div class="card" style="height:150px;">
+                            <div class="card-body border border-secondary shadow">
+                                <div class="form-group">
+                                    <div class="text-center">
+                                        <p class="text-primary"><i class="fas  fa-user-check fa-3x"></i></p>
+                                    </div>
+                                    <div class="text-center text-primary">
+                                        <label style="cursor:pointer">Hired Interns</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 py-2">
+                    <a href="@Url.Action("Index","SentEmails")">
+                        <div class="card" style="height:150px;">
+                            <div class="card-body border border-danger shadow">
+                                <div class="form-group">
+                                    <div class="text-center">
+                                        <p><i class="fas fa-envelope-open-text fa-3x"></i></p>
+                                    </div>
+                                    <div class="text-center">
+                                        <label style="cursor:pointer">View Sent Mails</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<br />
+

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<OnlineInternshipPortal.Models.Data.ViewModel.ReceivedMsgFromCompanyViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium
+    }
+
+    table thead th {
+        font-weight: bold;
+    }
+
+    body {
+        background-color: #F1F2F7
+    }
+</style>
+
+
+<h1 style="color: #8E24AA"><span class="fa fa-envelope fa-1x"></span> Inbox</h1>
+<br />
+<div class="alert alert-info">
+    Messages
+</div>
+
+<br />
+<div class="card">
+    <div class="card-header bg-transparent">
+        <div align="right">
+            <a href="@Url.Action("Students","Dashboard")" class="btn btn-info text-white"><span class="fa fa-arrow-left"></span> Back to Dashboard</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table id="tblReceivedMail" class="table table-sm table-hover  table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        Sender
+                    </th>
+                    <th>
+                        Subject
+                    </th>
+                    <th>
+                        Date
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/tablesjs/ReceivedMailList.js"></script>
+}

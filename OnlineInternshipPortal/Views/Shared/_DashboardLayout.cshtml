@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Title Page-->
+    <title>Dashboard</title>
+
+    <!-- Fontfaces CSS-->
+
+    <link href="~/Dashboard/css/font-face.css" rel="stylesheet" />
+    <link href="~/Dashboard/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="~/Dashboard/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="~/Dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+
+    <link href="~/Dashboard/vendor/bootstrap_4.1/bootstrap.min.css" rel="stylesheet" media="all" />
+    <!-- Vendor CSS-->
+    <link href="~/Dashboard/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="~/Dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="~/Dashboard/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="~/Dashboard/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="~/Dashboard/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="~/Dashboard/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/Dashboard/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+
+    <link href="~/Dashboard/css/theme.css" rel="stylesheet" />
+    <link href="~/lib/datatables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+    <link href="~/lib/datatables.net-responsive-bs4/responsive.bootstrap4.min.css" rel="stylesheet" />
+
+    <script src="~/lib/sweetalert/sweetalert.min.js"></script>
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="#">
+                            <h1> InternGo</h1>
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="@Url.Action("Admins","Dashboard")">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard
+                            </a>
+
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-gears"></i>Settings
+                            </a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="@Url.Action("Index","School")">
+                                        <i class="fa fa-home"></i>Schools
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","Industry")">
+                                        <i class="fa fa-industry"></i>Industy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","Designation")">
+                                        <i class="fas fa-paper-plane"></i>Designations
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","GuardianCategory")">
+                                        <i class="fas fa-television"></i>Guardian Category
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-user-circle"></i>Users
+                                @*<span class="arrow">
+                                        <i class="fas fa-angle-down"></i>
+                                    </span>*@
+                            </a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="@Url.Action("Admins","Users")">
+                                        <i class="fa fa-user"></i>Admins
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Employers","Users")">
+                                        <i class="fa fa-users"></i>Employees
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Students","Users")">
+                                        <i class="fas fa-user-circle"></i>Students
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="@Url.Action("Companies","Admin")">
+                                <i class="fas fa-table"></i>Companies
+                            </a>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="far fa-check-square"></i>Verify company
+                            </a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="@Url.Action("Index","VerifyCompany")">
+                                        <i class="fa fa-clock"></i>Pending
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ApprovedCompanies","VerifyCompany")">
+                                        <i class="fa fa-check"></i>Approved
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("DeniedCompanies","VerifyCompany")">
+                                        <i class="fas fa-times"></i>Denied
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Internships","Admin")">
+                                <i class="fas fa-calendar-alt"></i>Internships
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Interns")">
+                                <i class="fas fa-users "></i>Interns
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("InternsApplications","Admin")">
+                                <i class="fas fa-envelope"></i>Intern applications
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("InternsHired","HiredInterns")">
+                                <i class="fas fa-user-plus"></i>Hired Interns
+                            </a>
+                        </li>
+
+
+
+
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <h1> InternGo</h1>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="@Url.Action("Admins","Dashboard")">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard
+                            </a>
+
+                        </li>
+                        <!--Settings-->
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-gears"></i>Settings
+                            </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="@Url.Action("Index","School")">
+                                        <i class="fa fa-home"></i>Schools
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","Industry")">
+                                        <i class="fa fa-industry"></i>Industy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","Designation")">
+                                        <i class="fas fa-paper-plane"></i>Designations
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","GuardianCategory")">
+                                        <i class="fas fa-television"></i>Guardian Category
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+                        <!--Settings-->
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-user-circle"></i>Users
+                                @*<span class="arrow">
+                                        <i class="fas fa-angle-down"></i>
+                                    </span>*@
+                            </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="@Url.Action("Admins","Users")">
+                                        <i class="fa fa-user"></i>Admins
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Employers","Users")">
+                                        <i class="fa fa-users"></i>Employees
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Students","Users")">
+                                        <i class="fas fa-user-circle"></i>Students
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Companies","Admin")">
+                                <i class="fas fa-table"></i>Companies
+                            </a>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="far fa-check-square"></i>Verify company
+                            </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="@Url.Action("Index","VerifyCompany")">
+                                        <i class="fa fa-clock"></i>Pending
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ApprovedCompanies","VerifyCompany")">
+                                        <i class="fa fa-check"></i>Approved
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("DeniedCompanies","VerifyCompany")">
+                                        <i class="fas fa-times"></i>Denied
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Internships","Admin")">
+                                <i class="fas fa-calendar-alt"></i>Internships
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Interns")">
+                                <i class="fas fa-users "></i>Interns
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("InternsApplications","Admin")">
+                                <i class="fas fa-envelope"></i>Intern applications
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("InternsHired","HiredInterns")">
+                                <i class="fas fa-user-plus"></i>Hired Interns
+                            </a>
+                        </li>
+
+
+
+
+
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <form class="form-header">
+                                <input hidden class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                                <button class="au-btn--submit" type="submit" hidden>
+                                    <i class="zmdi zmdi-search"></i>
+                                </button>
+                            </form>
+                            <div class="header-button">
+                                <div class="noti-wrap">
+
+                                    <div class="noti__item js-item-menu" hidden>
+                                        <i class="zmdi zmdi-notifications"></i>
+                                        <span class="quantity">3</span>
+                                        <div class="notifi-dropdown js-dropdown">
+                                            <div class="notifi__title">
+                                                <p>You have 3 Notifications</p>
+                                            </div>
+                                            <div class="notifi__item">
+                                                <div class="bg-c1 img-cir img-40">
+                                                    <i class="zmdi zmdi-email-open"></i>
+                                                </div>
+                                                <div class="content">
+                                                    <p>You got a email notification</p>
+                                                    <span class="date">April 12, 2018 06:50</span>
+                                                </div>
+                                            </div>
+                                            <div class="notifi__item">
+                                                <div class="bg-c2 img-cir img-40">
+                                                    <i class="zmdi zmdi-account-box"></i>
+                                                </div>
+                                                <div class="content">
+                                                    <p>Your account has been blocked</p>
+                                                    <span class="date">April 12, 2018 06:50</span>
+                                                </div>
+                                            </div>
+                                            <div class="notifi__item">
+                                                <div class="bg-c3 img-cir img-40">
+                                                    <i class="zmdi zmdi-file-text"></i>
+                                                </div>
+                                                <div class="content">
+                                                    <p>You got a new file</p>
+                                                    <span class="date">April 12, 2018 06:50</span>
+                                                </div>
+                                            </div>
+                                            <div class="notifi__footer">
+                                                <a href="#">All notifications</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="account-wrap">
+                                    <partial name="_AdminLoginPartial" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+
+
+
+                        <!--body rendering-->
+                        @await Html.PartialAsync("_NotificationPartial")
+                        @RenderBody()
+                        <!--body rendering-->
+                        @*<div class="row">
+                                <div class="col-md-12">
+                                    <div class="copyright">
+                                        <p>Copyright © @DateTime.Now.Year . All rights reserved</p>
+                                    </div>
+                                </div>
+                            </div>*@
+
+                    </div>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <br />
+            <footer class="border-top footer text-muted">
+                <div class="container">
+                    Copyright &copy; @DateTime.Now.Year - Online Internship System
+                </div>
+            </footer>
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+
+    <script src="~/Dashboard/vendor/jquery-3.2.1.min.js"></script>
+
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <!-- Bootstrap JS-->
+
+    <script src="~/Dashboard/vendor/bootstrap_4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="~/Dashboard/vendor/slick/slick.min.js">
+    </script>
+    <script src="~/Dashboard/vendor/wow/wow.min.js"></script>
+    <script src="~/Dashboard/vendor/animsition/animsition.min.js"></script>
+
+    <script src="~/Dashboard/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="~/Dashboard/vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="~/Dashboard/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="~/Dashboard/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="~/Dashboard/vendor/select2/select2.min.js">
+    </script>
+
+    <!-- Main JS-->
+    <script src="~/Dashboard/js/main.js"></script>
+    <script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.js"></script>
+    <script src="~/lib/datatables-fixedheader/dataTables.fixedHeader.min.js"></script>
+    <script src="~/lib/datatables-responsive/dataTables.responsive.js"></script>
+    <script src="~/lib/datatables.net-responsive-bs4/responsive.bootstrap4.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
+<!-- end document-->

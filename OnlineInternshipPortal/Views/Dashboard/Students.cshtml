@@ -1,0 +1,172 @@
+﻿
+@{
+    ViewData["Title"] = "Students";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium;
+        color: #8E24AA
+    }
+
+    body {
+        background-color: #F1F2F7
+    }
+</style>
+<script type="text/javascript">
+    /* $('.alert').alert()*/
+    window.setTimeout(function () {
+        $('#alertInformation').fadeTo(500, 0).slideUp(500, function () {
+            $(this).alert('close');
+        });
+
+    }, 10000);
+</script>
+
+<div class="alert alert-info">
+    <h3><span class="fa fa-dashboard"></span> Welcome to the student dashboard </h3>
+</div>
+<div id="alertInformation" class="alert alert-warning alert-dismissible fade show" role="alert">
+   <p>If this is your first login,then do the following instructions else close it</p>
+    <ul type="square">
+        <li>Go to Add students to fill your details and upload CV</li>
+        <li>If you made a mistake after submission of student information,Go to edit student information to change it</li>
+        <li>View your student information by going to View student information</li>
+        <li>Go to Message Inbox to view messages sent to you by companies</li>
+    </ul>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<br />
+<div class="form">
+
+    <div class="card shadow-lg">
+        <div class="card-header bg-transparent">
+            <h5 class="text-black-50 text-uppercase">Quick Start</h5>
+        </div>
+        <div class="card-body">
+            <div class="row" style="margin:auto;">
+
+                <div class="col-md-3 py-2">
+                    <a asp-controller="Interns" asp-action="AddInterns">
+                        <div class="card shadow" style="height:150px;">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="text-center ">
+                                        <p><i class="fa  fa-user-plus fa-3x"></i></p>
+                                    </div>
+                                    <div class="text-center">
+                                        <label asp-controller="Interns" asp-action="AddInterns" style="cursor:pointer">Add student information</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="col-md-3 py-2" style="margin:auto">
+                    <a asp-controller="Interns" asp-action="StudentDetails">
+                        <div class="card shadow" style="height:150px;">
+                            <div class="card-body">
+                                <div class="form-group">
+
+                                    <div class="text-center">
+                                        <p><i class="fa  fa-user-circle fa-3x"></i></p>
+                                    </div>
+                                    <div class="text-center">
+                                        <label asp-controller="Interns" asp-action="StudentDetails" style="cursor:pointer">View student information</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="col-md-3 py-2">
+                    <a asp-controller="Interns" asp-action="UpdateStudentDetails">
+                        <div class="card shadow" style="height:150px;">
+                            <div class="card-body">
+                                <div class="form-group">
+
+                                    <div class="text-center">
+                                        <p><i class="fa  fa-edit fa-3x"></i></p>
+                                    </div>
+                                    <div class="text-center">
+                                        <label asp-controller="Interns" asp-action="UpdateStudentDetails" style="cursor:pointer">Edit student information</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+            <div class="row" style="margin:10px auto;">
+                <div class="col-md-3 py-2">
+                    <a href="@Url.Action("Index","InternshipSearch")">
+                        <div class="card shadow" style="height:150px;">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="text-center">
+                                        <p><i class="fa  fa-search fa-3x"></i></p>
+                                    </div>
+                                    <div class="text-center">
+                                        <label style="cursor:pointer">Search internships</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 py-2" style="margin:auto">
+                    <a  href="@Url.Action("Index","ReceivedEmails")">
+                        <div class="card shadow" style="height:150px;">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="text-center">
+                                        <p class="text-primary"><i class="fa  fa-envelope fa-3x"></i></p>
+                                    </div>
+                                    <div class="text-center text-primary">
+                                        <label style="cursor:pointer">Message Inbox</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 py-2">
+                    <a href="@Url.Action("StudentApplications","InternApplication")">
+                        <div class="card shadow" style="height:150px;">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="text-center">
+                                        <p><i class="fa fa-address-book-o fa-3x"></i></p>
+                                    </div>
+                                    <div class="text-center">
+                                        <label style="cursor:pointer">View applications sent</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<br />
+

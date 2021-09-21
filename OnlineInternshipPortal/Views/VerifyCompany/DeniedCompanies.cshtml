@@ -1,0 +1,44 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.VerifyCompanyViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+
+
+<h1>List of denied Companies and status</h1>
+<br />
+<div class="alert alert-info">
+    Company status
+</div>
+<br />
+<div class="card au-card shadow">
+    <div class="card-body">
+        <div class="card">
+            <div class="card-body">
+                <table id="emptable" class="table table-sm table-hover  table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CompanyName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.VerifyCategoryName)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/tablesjs/VerifyDeniedCompanyList.js"></script>
+    <script src="~/lib/sweetalert/sweetalert.min.js"></script>
+}

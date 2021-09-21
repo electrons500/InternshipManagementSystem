@@ -1,0 +1,48 @@
+﻿@model IEnumerable<OnlineInternshipPortal.Models.Data.ViewModel.CompanyViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_header.cshtml";
+
+
+}
+
+
+<h1>List of registered companies</h1>
+<br />
+
+<div class="card">
+   
+    <div class="card-body">
+        <table id="Companytbl" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+
+                    <th>
+                        Location 
+                    </th>
+
+                    <th>
+                        Contact
+                    </th>
+                    <th>
+                        Email
+                    </th>
+
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+
+
+@section Scripts{
+
+    <script src="~/js/tablesjs/CompanyList.js"></script>
+    <script src="~/lib/sweetalert/sweetalert.min.js"></script>
+}

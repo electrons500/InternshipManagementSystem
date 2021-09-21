@@ -1,0 +1,37 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.DesignationViewModel
+
+@{
+    ViewData["Title"] = "ChangeDesignation";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1>Change designation</h1>
+
+<hr />
+<div class="alert alert-info">
+   Designation/Edit designation
+</div>
+
+<br />
+<div class="card au-card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="ChangeDesignation">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="DesignationId" />
+                    <div class="form-group">
+                        <label asp-for="DesignationName" class="control-label"></label>
+                        <input asp-for="DesignationName" class="form-control" />
+                        <span asp-validation-for="DesignationName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary"><span class="fa fa-save"> </span> Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

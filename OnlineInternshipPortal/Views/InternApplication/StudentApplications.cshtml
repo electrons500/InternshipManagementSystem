@@ -1,0 +1,60 @@
+﻿@model IEnumerable<OnlineInternshipPortal.Models.Data.ViewModel.ApplicationViewModel>
+
+@{
+    ViewData["Title"] = "StudentApplications";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium
+    }
+
+    table thead th {
+        font-weight: bold;
+    }
+
+    body {
+        background-color: #F1F2F7
+    }
+</style>
+
+<h1 style="color: #8E24AA"><span class="fa fa-envelope"></span> List of application sent</h1>
+<br />
+<div class="alert alert-info">
+    Applications
+</div>
+<br />
+<div class="card shadow-lg">
+    <div class="card-header bg-transparent">
+        <div align="right">
+            <a href="@Url.Action("Students","Dashboard")" class="btn btn-info text-white"><span class="fa fa-arrow-left"></span> Back to Dashboard</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table id="studentApplicationList" class="table table-sm table-hover  table-bordered">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.CompanyId)
+                    </th>
+                    <th>
+                        Internship applied
+                    </th>
+                    <th>
+                        Date
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script src="~/js/tablesjs/StudentApplicationsList.js"></script>
+}

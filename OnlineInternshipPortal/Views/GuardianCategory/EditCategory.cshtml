@@ -1,0 +1,38 @@
+﻿@model OnlineInternshipPortal.Models.Data.OnlineInternshipContext.GuardianCategory
+
+@{
+    ViewData["Title"] = "EditCategory";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1>Edit Guardian category</h1>
+<br />
+<div class="alert alert-info">
+    Guardian category/Edit category
+</div>
+
+<div class="card au-card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="EditCategory">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="GuardianCategoryId" />
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" required/>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary"><span class="fa fa-save"> </span> Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="~/js/tablesjs/GuardianCategList.js"></script>
+    
+}

@@ -1,0 +1,154 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.InternshipViewModel
+
+@{
+    ViewData["Title"] = "AddInternship";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium
+    }
+
+
+    body {
+        background-color: #F1F2F7
+    }
+</style>
+<h5 class="text-center" style="color: #8E24AA"><span class="fas fa-user-circle fa-2x"> Internship information</span></h5>
+<hr />
+<div class="alert alert-info">
+    Internship/Add new internship
+</div>
+<br />
+
+<div class="card">
+    <div class="card-header" style="background-color:#8E24AA">
+        <h2 class="text-center text-white">Complete this information</h2>
+    </div>
+    <div class="card-body">
+        <form asp-action="AddInternship">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Location" class="control-label"></label>
+                        <input asp-for="Location" class="form-control" />
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Duration" class="control-label"></label>
+                        <input asp-for="Duration" class="form-control" placeholder="eg. 2 months" />
+                        <span asp-validation-for="Duration" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="WorkDescription" class="control-label"></label>
+
+                        <textarea asp-for="WorkDescription" class="form-control" rows="5" cols="12" placeholder="Type description here"></textarea>
+                        <span asp-validation-for="WorkDescription" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AdditionalInfo" class="control-label"></label>
+                        <textarea asp-for="AdditionalInfo" class="form-control" rows="5" cols="12" placeholder="Type description here"></textarea>
+                        <span asp-validation-for="AdditionalInfo" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="SkillsRequired" class="control-label"></label>
+                        <input asp-for="SkillsRequired" class="form-control" />
+                        <span asp-validation-for="SkillsRequired" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="DeadLineDate" class="control-label"></label>
+                        <input asp-for="DeadLineDate" class="form-control" value="@DateTime.Now.ToShortDateString()" />
+                        <span asp-validation-for="DeadLineDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="WhoCanApply" class="control-label"></label>
+                        <input asp-for="WhoCanApply" class="form-control" />
+                        <span asp-validation-for="WhoCanApply" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="InternshipStatusId" class="control-label"></label>
+                        <select asp-for="InternshipStatusId" asp-items="@Model?.InternshipStatusList" class="form-control">
+                            <option>Select internship status</option>
+                        </select>
+                        <span asp-validation-for="InternshipStatusId" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="RemoteId" class="control-label"></label>
+                        <select asp-for="RemoteId" asp-items="@Model?.RemoteList" class="form-control">
+                            <option>Select remote status</option>
+                        </select>
+                        <span asp-validation-for="RemoteId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="PublicizeId" class="control-label"></label>
+                        <select asp-for="PublicizeId" asp-items="@Model?.PublicizeList" class="form-control">
+                            <option>Select publicize status</option>
+                        </select>
+                        <span asp-validation-for="PublicizeId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="IndustryId" class="control-label"></label>
+                        <select asp-for="IndustryId" asp-items="@Model?.IndustryList" class="form-control">
+                            <option>Select industry</option>
+                        </select>
+                        <span asp-validation-for="IndustryId" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div style="margin-top:70px">
+                <div align="center">
+                    <button type="submit" class="btn btn-primary" style="width:300px;"><span class="fa fa-save"></span> Submit</button>
+                </div>
+            </div>
+            <br />
+
+        </form>
+    </div>
+</div>
+
+     
+  
+

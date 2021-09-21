@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using OnlineInternshipPortal.Models.Data
+
+@inject SignInManager<ApplicationUser> _SignInManager
+@inject UserManager<ApplicationUser> _UserManager
+
+@if (_SignInManager.IsSignedIn(User))
+{
+
+    <li class="nav-item nav-profile">
+        <a href="#" class="nav-link">
+            <div class="">
+                @if (_UserManager.GetUserAsync(User).Result.ProfilePic != null)
+                {
+                    <img class="rounded-circle" style="width:100px; height:100px;" alt="user image" src="data:image/*;base64,@(Convert.ToBase64String(_UserManager.GetUserAsync(User).Result.ProfilePic))">
+                }
+                else
+                {
+                    <img src="~/images/avatar-2.jpg" class="rounded-circle" style="width:100px; height:100px;"  alt="user image">
+                }
+
+                <span class="login-status online"></span>
+                <!--change to offline or busy as needed-->
+            </div>
+
+        </a>
+    </li>
+
+    <li class="nav-item nav-profile">
+        <a href="#" class="nav-link">
+            <div class="nav-profile-text d-flex flex-column">
+                <span class="font-weight-bold mb-2">@_UserManager.GetUserAsync(User).Result.FullName</span>
+                <span class="text-secondary text-small">Adminstrator</span>
+            </div>
+            <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+        </a>
+        <hr />
+    </li>
+
+
+
+}

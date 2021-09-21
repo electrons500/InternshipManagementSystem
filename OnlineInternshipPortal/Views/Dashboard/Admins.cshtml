@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewData["Title"] = "Adminstrators";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@if (ViewBag.countPendingCompanies != 0)
+{
+<div id="alertInformation" class="alert alert-warning">
+    <span class="fa fa-warning"></span>
+    You have <span style="font-weight:bolder">@ViewBag.countPendingCompanies </span> pending companies to verify.
+    Click on verify company to verify them
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="overview-wrap">
+            <h2 class="title-1">Dashboard</h2>
+           
+        </div>
+    </div>
+</div>
+<div class="row m-t-25">
+    <div class="col-sm-6 col-lg-3">
+        <div class="overview-item overview-item--c1">
+            <div class="overview__inner">
+                <div class="overview-box clearfix">
+                    <div class="icon">
+                        <i class="zmdi zmdi-account-o"></i>
+                    </div>
+                    <div class="text">
+                        <h2>@ViewBag.NumnberOfUsers</h2>
+                        <span>Users</span>
+                    </div>
+                </div>
+                <div class="overview-chart">
+                    <canvas id="widgetChart1"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+        <div class="overview-item overview-item--c2">
+            <div class="overview__inner">
+                <div class="overview-box clearfix">
+                    <div class="icon">
+                        <i class="zmdi zmdi-home"></i>
+                    </div>
+                    <div class="text">
+                        <h2>@ViewBag.NumnberOfCompanies</h2>
+                        <span>Companies</span>
+                    </div>
+                </div>
+                <div class="overview-chart">
+                    <canvas id="widgetChart2"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+        <div class="overview-item overview-item--c3">
+            <div class="overview__inner">
+                <div class="overview-box clearfix">
+                    <div class="icon">
+                        <i class="zmdi zmdi-folder-person"></i>
+                    </div>
+                    <div class="text">
+                        <h2>@ViewBag.NumberOfInterns</h2>
+                        <span>Interns</span>
+                    </div>
+                </div>
+                <div class="overview-chart">
+                    <canvas id="widgetChart3"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+        <div class="overview-item overview-item--c4">
+            <div class="overview__inner">
+                <div class="overview-box clearfix">
+                    <div class="icon">
+                        <i class="zmdi zmdi-assignment"></i>
+                    </div>
+                    <div class="text">
+                        <h2>@ViewBag.NumberOfInternships</h2>
+                        <span>Internships</span>
+                    </div>
+                </div>
+                <div class="overview-chart">
+                    <canvas id="widgetChart2"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

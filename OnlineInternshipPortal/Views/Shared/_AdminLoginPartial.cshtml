@@ -1,0 +1,66 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using OnlineInternshipPortal.Models.Data
+
+@inject SignInManager<ApplicationUser> _SignInManager
+@inject UserManager<ApplicationUser> _UserManager
+
+
+
+@if (_SignInManager.IsSignedIn(User))
+{
+
+    <div class="account-item clearfix js-item-menu">
+        <div class="image">
+            @if (_UserManager.GetUserAsync(User).Result.ProfilePic != null)
+            {
+                <img alt="user image" src="data:image/*;base64,@(Convert.ToBase64String(_UserManager.GetUserAsync(User).Result.ProfilePic))">
+            }
+            else
+            {
+                <img src="~/images/avatar-2.jpg"  alt="user image">
+            }
+        </div>
+        <div class="content">
+            <a class="js-acc-btn" href="#">@_UserManager.GetUserAsync(User).Result.FullName</a>
+        </div>
+        <div class="account-dropdown js-dropdown">
+            <div class="info clearfix">
+                <div class="image">
+                    @if (_UserManager.GetUserAsync(User).Result.ProfilePic != null)
+                    {
+                        <img  alt="user image" src="data:image/*;base64,@(Convert.ToBase64String(_UserManager.GetUserAsync(User).Result.ProfilePic))">
+                    }
+                    else
+                    {
+                        <img src="~/images/avatar-2.jpg" class="rounded-circle" alt="user image">
+                    }
+
+                </div>
+                <div class="content">
+                    <h5 class="name">
+                        <a href="#">@_UserManager.GetUserAsync(User).Result.FullName</a>
+                    </h5>
+                    <span class="email">@_UserManager.GetUserAsync(User).Result.Email</span>
+
+                </div>
+            </div>
+            <div class="account-dropdown__body">
+                <div class="account-dropdown__item">
+                    <a href="@Url.Action("GetAdminDetails","Account")">
+                        <i class="zmdi zmdi-account"></i>Account
+                    </a>
+                </div>
+               
+               
+            </div>
+            <div class="account-dropdown__footer">
+                <a href="@Url.Action("Logout","Account")">
+                    <i class="zmdi zmdi-power"></i>Logout
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+}

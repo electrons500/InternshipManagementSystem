@@ -1,0 +1,101 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.ReceivedMsgFromCompanyViewModel
+
+@{
+    ViewData["Title"] = "ReceivedMailDetails";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium
+    }
+
+    table thead th {
+        font-weight: bold;
+    }
+
+    body {
+        background-color: #F1F2F7
+    }
+</style>
+
+<h1 class="text-center" style="color:#8E24AA"><i class="fas fa-envelope-open fa-1x"></i> View inbox message</h1>
+<br />
+<div class="alert alert-info">
+    Messages/Sent message
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-primary rounded rounded-0"><span class="fa fa-arrow-circle-left"></span> Back to Inbox</a>
+</div>
+
+<br />
+
+<div class="row">
+    <div class="col-md-12">
+        <form>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="InternId" />
+            <input type="hidden" asp-for="RecieveId" />
+            <div class="form-group">
+                <label class="control-label"> From</label>
+                <input asp-for="CompanyName" class="form-control" required />
+                <span asp-validation-for="CompanyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">To</label>
+                <input asp-for="InternEmail" class="form-control" required />
+                <span asp-validation-for="InternId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" required />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Messagebody" class="control-label"></label>
+
+                <textarea cols="10" rows="20" class="form-control" asp-for="Messagebody">
+                
+                </textarea>
+                <span asp-validation-for="Messagebody" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <ul class="navbar-nav">
+
+                            <li class="nav-item dropdown">
+                                @if (Model.Extension == ".pdf")
+                                {
+                                    <a>
+                                        <span class="fa fa-file-pdf fa-2x  text-danger"></span> @Model.Attachments
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a>
+                                        <span class="fa fa-file-word fa-2x text-primary "></span> @Model.Attachments
+                                    </a>
+                                }
+                            </li>
+                            <li>
+                                <button asp-action="DownloadFileFromFileSystem" asp-route-id="@Model.RecieveId" class="btn btn-outline-primary btn-sm" style="border-radius:50px; margin-top:10px;margin-left:5px;" href="#">
+                                    <span class="fa fa-file-download"></span>   Download
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+
+
+
+        </form>
+    </div>
+</div>
+
+<br />
+<br />

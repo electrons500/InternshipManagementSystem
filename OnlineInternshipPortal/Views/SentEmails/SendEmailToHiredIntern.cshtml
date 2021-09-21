@@ -1,0 +1,73 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.SentMailsViewModel
+
+@{
+    ViewData["Title"] = "Send email";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium
+    }
+
+    table thead th {
+        font-weight: bold;
+    }
+
+    body {
+        background-color: #F1F2F7
+    }
+</style>
+
+<h1 class="text-center" style="color:#8E24AA"><i class="fas fa-envelope fa-1x"></i> Compose a message</h1>
+<br />
+<div class="alert alert-info">
+    Messages/Compose message
+</div>
+
+<br />
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="SendEmailToHiredIntern" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="InternId" />
+            <div class="form-group">
+                <label class="control-label">To</label>
+                <input asp-for="InternEmail" class="form-control" required />
+                <span asp-validation-for="InternId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"> From</label>
+                <input asp-for="CompanyEmail" class="form-control" required />
+                <span asp-validation-for="CompanyId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" required />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Messagebody" class="control-label"></label>
+
+                <textarea cols="10" rows="20" class="form-control" asp-for="Messagebody" required>
+                
+                </textarea>
+                <span asp-validation-for="Messagebody" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Add Attachment <span class="text-danger">(.pdf and .docx files only)</span></label>
+                <input type="file" asp-for="AttachmentsIformfile" class="form-control" accept=".pdf,.docx" />
+                <span asp-validation-for="Attachments" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+
+                <button type="submit" class="btn btn-secondary text-white" style="background-color: #8E24AA"><span class="fa fa-paper-plane"> </span> Send</button>
+            </div>
+        </form>
+    </div>
+</div>
+

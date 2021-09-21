@@ -1,0 +1,33 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.SchoolViewModel
+
+@{
+    ViewData["Title"] = "AddSchool";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1>Add School</h1>
+<br />
+<div class="alert alert-info">
+    School / Add School
+</div>
+<br />
+<div class="card au-card">
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <form asp-action="AddSchool">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="SchoolName" class="control-label"></label>
+                        <input asp-for="SchoolName" class="form-control" />
+                        <span asp-validation-for="SchoolName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary"><span class="fa fa-save"> </span> Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

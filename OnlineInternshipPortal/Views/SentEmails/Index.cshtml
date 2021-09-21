@@ -1,0 +1,64 @@
+﻿@model IEnumerable<OnlineInternshipPortal.Models.Data.ViewModel.SentMailsViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_header.cshtml";
+}
+
+<style type="text/css">
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-size: medium
+    }
+
+    table thead th {
+        font-weight: bold;
+    }
+
+    body {
+        background-color: #F1F2F7
+    }
+</style>
+
+
+<h1>Sent mails</h1>
+<br />
+<div class="alert alert-info">
+    Messages
+</div>
+
+<br />
+<div class="card">
+    <div class="card-header bg-transparent">
+        <div align="center">
+            <a class="btn btn-secondary center" asp-controller="DashBoard" asp-action="Employers" style="background-color: #8E24AA;"><span class="fas fa-arrow-left"></span> Go to Dashboard</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table id="tblSentMail" class="table table-sm table-hover  table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        Sender
+                    </th>
+                    <th>
+                        Receipient
+                    </th>
+                    <th>
+                        Subject
+                    </th>
+                    <th>
+                        Date
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/tablesjs/SentCompanyMailList.js"></script>
+}

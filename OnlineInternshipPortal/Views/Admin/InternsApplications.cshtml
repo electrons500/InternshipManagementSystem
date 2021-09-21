@@ -1,0 +1,44 @@
+﻿@model IEnumerable<OnlineInternshipPortal.Models.Data.ViewModel.ApplicationViewModel>
+
+@{
+    ViewData["Title"] = "InternsApplications";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1>Interns Applications</h1>
+<br />
+
+<div class="card au-card shadow">
+    <div class="card-body">
+        <table id="applicationtbl" class="table table-sm table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateOfApplication)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InternId)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.CompanyId)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.ApprovalId)
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/tablesjs/AdminInternsAplications.js"></script>
+    <script src="~/lib/sweetalert/sweetalert.min.js"></script>
+
+}

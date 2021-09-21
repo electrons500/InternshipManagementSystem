@@ -1,0 +1,51 @@
+﻿@model OnlineInternshipPortal.Models.Data.ViewModel.ApplicationViewModel
+
+@{
+    ViewData["Title"] = "InternsApplicationsDetails";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1>Interns Applications Details</h1>
+
+<div>
+    
+    <hr />
+   <div class="card au-card">
+       <div class="card-body">
+           <dl class="row">
+               <dt class="col-sm-3">
+                   @Html.DisplayNameFor(model => model.DateOfApplication)
+               </dt>
+               <dd class="col-sm-9">
+                   @Html.DisplayFor(model => model.DateOfApplication)
+               </dd>
+               <dt class="col-sm-3">
+                   @Html.DisplayNameFor(model => model.InternId)
+               </dt>
+               <dd class="col-sm-9">
+                   @Html.DisplayFor(model => model.InternName)
+               </dd>
+               <dt class="col-sm-3">
+                   @Html.DisplayNameFor(model => model.InternshipId)
+               </dt>
+               <dd class="col-sm-9">
+                   @Html.DisplayFor(model => model.InternshipTitle)
+               </dd>
+               <dt class="col-sm-3">
+                   @Html.DisplayNameFor(model => model.CompanyId)
+               </dt>
+               <dd class="col-sm-9">
+                   @Html.DisplayFor(model => model.CompanyName)
+               </dd>
+
+               <dt class="col-sm-3">
+                   @Html.DisplayNameFor(model => model.ApprovalId)
+               </dt>
+               <dd class="col-sm-9">
+                   @Html.DisplayFor(model => model.ApprovalName)
+               </dd>
+           </dl>
+       </div>
+   </div>
+
+</div>
