@@ -1,4 +1,6 @@
 # Internship Management System
+![This is an image](https://codestudyblog.com/ref/8tenimagefolder/8ten84/80419003209_1.jpeg?imageView2/2/w/1620)
+
 Internship Management System is meant to help students in my country Ghana to have an internship from Companies without any struggle.You can download and modify my source code to suite your own.
 
 It was built on ASP.NET CORE 5.0
